@@ -28,7 +28,7 @@ Inventory the running proxy, network, current canonical source and certificate m
 
 The shared proxy has an image-baked configuration, not a source bind mount. This deployment updates both the source and live container file. A later rebuild from the canonical source retains the new host. Recreating the old image without rebuilding discards runtime edits; use the canonical source to build first during a separately approved maintenance window.
 
-Certificate renewal uses the existing renewal container and mounted webroot/certificate volumes. The existing shared proxy certificate reload schedule remains unchanged. A renewal dry-run should be verified and renewal failures monitored; the certificate is not a substitute for monitoring.
+Certificate renewal uses the existing renewal container and mounted webroot/certificate volumes. The existing shared proxy certificate reload schedule remains unchanged. The initial test hostname's renewal dry-run succeeded on October 9, 2026. Monitor renewal failures; the certificate is not a substitute for monitoring. For a manual renewal test, add --no-random-sleep-on-renew to avoid Certbot's intentional renewal delay.
 
 ## Verify And Roll Back
 

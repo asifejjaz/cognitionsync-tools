@@ -9,7 +9,7 @@ Validated locally on Windows with Node 24 and Playwright Chromium on October 9, 
 - The two production tests also pass against https://aitools.cognitionsync.com: all 12 direct tool routes/canonical links, sitemap, license notices, POST rejection, unknown-route 404, hashed-asset caching/gzip, worker MIME type, and real conversions. No POST/other upload requests were observed during these conversions.
 - The new standalone checkout installs with the frozen lockfile and builds successfully. All 13 local browser tests were rerun there. Tests automatically start/reuse the development server after an initial rerun exposed a stopped local server.
 - Docker execution and Nginx syntax are verified on the VM. The live container is non-root/read-only with enforced 256 MB memory, one CPU and 64 PID limits, and a private published binding. The shared proxy was gracefully reloaded, not restarted; the existing three main websites remained HTTP 200. Source/runtime backups are kept privately on the VM. Only the new hostname's block was added to the shared configuration.
-- A separate TLS certificate was issued for the test hostname, expiring January 7, 2027. The existing Certbot renewal service and proxy certificate-reload schedule remain in place.
+- A separate TLS certificate was issued for the test hostname, expiring January 7, 2027. Its renewal dry-run succeeded. The existing Certbot renewal service and proxy certificate-reload schedule remain in place.
 - Desktop and 390/320-pixel phone layouts were inspected and checked for horizontal overflow. Preview photographs and generated PDF canvases render.
 - Audit no longer reports the high-severity PDF.js advisory. One unpatched moderate CLI-only transitive advisory remains documented in ../SECURITY.md.
 
