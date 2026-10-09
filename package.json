@@ -1,0 +1,48 @@
+{
+  "name": "filework-toolkit",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173 --strictPort",
+    "build": "tsc -b && vite build && node scripts/prerender.mjs && node scripts/licenses.mjs",
+    "preview": "vite preview --host 0.0.0.0 --port 4173 --strictPort",
+    "test": "vitest run",
+    "test:e2e": "playwright test",
+    "format": "prettier --write src tests scripts *.json *.ts *.yaml index.html",
+    "format:check": "prettier --check src tests scripts *.json *.ts *.yaml index.html"
+  },
+  "dependencies": {
+    "dompurify": "^3.2.7",
+    "heic-to": "^1.6.5",
+    "jszip": "^3.10.1",
+    "lucide-react": "^0.468.0",
+    "mammoth": "^1.10.0",
+    "marked": "^15.0.12",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.2.108",
+    "pdfmake": "^0.2.20",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-easy-crop": "^5.5.0",
+    "react-router-dom": "^7.9.1",
+    "turndown": "^7.2.1",
+    "turndown-plugin-gfm": "^1.0.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.1",
+    "@types/pdfmake": "^0.2.11",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@types/turndown": "^5.0.5",
+    "@vitejs/plugin-react": "^5.0.3",
+    "prettier": "3.6.2",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.7",
+    "vitest": "^3.2.4"
+  }
+}

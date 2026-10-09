@@ -1,0 +1,27 @@
+name: cognitionsync-tools
+services:
+  web:
+    image: ${FILEWORK_IMAGE:?Set FILEWORK_IMAGE to the tested release image}
+    restart: unless-stopped
+    ports:
+      - "${BIND_IP:-127.0.0.1}:8050:8080"
+    read_only: true
+    user: "101:101"
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    mem_limit: 256m
+    memswap_limit: 256m
+    cpus: 1.0
+    pids_limit: 64
+    tmpfs:
+      - /tmp:size=32m,mode=1777
+    logging:
+      driver: json-file
+      options:
+        max-size: 10m
+        max-file: "3"
+    healthcheck:
+      test: [CMD, wget, -q, --spider, http://127.0.0.1:8080/health]
+      interval: 30s
+      timeout: 5s
+      retries: 3

@@ -1,0 +1,7 @@
+node_modules
+dist
+public/samples
+test-results
+playwright-report
+pnpm-lock.yaml
+docs/portfolio-research.md

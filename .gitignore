@@ -1,0 +1,13 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+.env
+.env.*
+.deploy-staging/
+*.log
+*.tsbuildinfo
+*.pem
+*.key
+*.p12
+*.pfx
